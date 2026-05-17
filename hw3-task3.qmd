@@ -1,0 +1,18 @@
+**Task 3: Considerations in High Dimensions**
+*Using AI to understand how regularization parameters (like lambda) impact high-dimensional datasets and the mean square error (MSE).*
+
+The book states "shrinkage plays a key role in high-dimensional problems,” but the exact impact of regularization is confusing. Therefore, I used AI to understand how lambda affects the mean square error (MSE) when there are more features than observations. 
+
+Prompt: 
+I am an environmental data science graduate student and am learning about fitting regression models and interpreting results on high-dimensional data. I am reading section 6.4 Considerations in High Dimensions in the course textbook: An Introduction to Statistical Learning with applications in Python for my course on Machine learning. 
+I did not fully understand how the regulation parameter (lambda) impacts the MSE in correspondence with the number of features in high dimensional problems. Figure 6.24 was used to explain this concept, but it uses degrees of freedom instead of lambda which is confusing me further. 
+Please run me through an example of how the regulation parameter is impacting the results in different scenarios. Compare the impact of low lambdas to high lambdas in the scenario. At the end, please give me 2 short sentences summarising the explanation.
+
+Generative AI reflection: 
+I used Claude, and the prompt is listed above. Claude gave me an interactive plot which had lambda on the x and MSE on the y axis. Additionally, the plot had two sliders: (1) number of features with the three options p<<n, p = n, and p>>n and (2) lambda ranging from 0 to 100. I was only interested in high dimensional scenarios, so I stayed on p>>n. However, the plot did not change once the number of features was decided. Therefore, the AI interactive model was not helpful. The mostly helpful response from Claude was the summary sentence at the end. Claude stated “The optimal λ — the one that minimises test MSE — shifts higher as dimensionality increases, since stronger regularisation is needed to counteract the growing variance”. I did not understand Claude at first. However, once I went back to the book and re-read Figure 6.24, it made more sense. 
+
+My understanding now: 
+High dimensional datasets are problematic because low sample sizes bring high variance and are at risk for overfitting. The regulatory regression models are a solution. However, the “helpfulness” of the regulatory regression method is dependent on the dataset composition (how much larger is p than n). 
+When p >>>>> n, the regulatory regression models cannot make up for the large amount of variance. 
+When p >>> n, high regularization (high lambdas = low degrees of freedom) can help counteract the large amount of variance from the data. 
+When p > n, minimal regularization is needed to obtain low MSE test scores. 
